@@ -1,4 +1,4 @@
-
+const { PLogin } = require('../properties/PLogin');
 
 class OLogin{
     #usernameLocator;
@@ -8,13 +8,14 @@ class OLogin{
     #facilityOkLocator;
     #practiceSelectionLocator;
     #userSelectionLocator;
+    
     constructor(page){
-        this.page=page;
+        const pLogin = new PLogin();
         this.#usernameLocator = page.locator('input[id="UserName"]');
         this.#passwordLocator = page.locator('input[id="Password"]');
-        this.#signInLocator = page.locator('button[id="loginBtn"]');
+        this.#signInLocator = page.locator(`//button[normalize-space()="${pLogin.signInButtonText}"]`);
         this.#selectFacilityLocator = page.locator('select[id="FacilityId"]');
-        this.#facilityOkLocator = page.locator('button[id="facilitySelect"]');
+        this.#facilityOkLocator = page.locator(`//button[normalize-space()="${pLogin.selectFacilityButtonText}"]`);
         this.#practiceSelectionLocator = page.locator("//div[@class='SumoSelect sumo_PracticeId']");
         this.#userSelectionLocator = page.locator("//div[@class='SumoSelect sumo_UserId']");
     }

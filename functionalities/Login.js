@@ -27,7 +27,7 @@ class Login {
   await this.OL.selectFacilityLocator.waitFor({ state: 'visible', timeout: 15000 });
   await this.OL.selectFacilityLocator.selectOption(env.FACILITY);
   await this.OL.facilityOkLocator.click();
-    await this.page.waitForTimeout(6000);
+  await this.page.waitForTimeout(6000);
 }
 
 }
