@@ -1,4 +1,3 @@
-//CHnged
 const { test, expect } = require('@playwright/test');
 const { Login } = require('../functionalities/Login');
 const { ODashboard } = require('../page_objects/ODashboard');
@@ -9,23 +8,19 @@ const storagePath = path.join(__dirname, '../storageState.json');
 
 let OD, Da, page;
 
-
 test.describe.serial('Verify Dashboard Functionality', () => {
   test.beforeAll(async ({ browser }) => {
+
     console.log('Logging in before Dashboard tests...');
-    page = await browser.newPage();
+    const context = await browser.newContext();
+    page = await context.newPage();
     const lg = new Login(page);
     await lg.NavigateToUAT();
     await lg.Login();
     await lg.SelectFacility();
-
-    await page.locator('//div[@class="fl lblPractice pract ellipsis bold"]').waitFor({ timeout: 10000 });
     await page.context().storageState({ path: storagePath });
-
     OD = new ODashboard(page);
     Da = new Dashboard(page);
-
-    
     console.log('Login session saved and page objects initialized.');
   });
 
@@ -54,10 +49,7 @@ test.describe.serial('Verify Dashboard Functionality', () => {
     await expect(OD.loggedInFacility).toHaveAttribute('title', 'Burton Hills', { timeout: 10000 });
   });
 
-
-
-
-    test.describe('Verify Dashboard Shortcut : Co-Sign',()=>{
+  test.describe('Verify Dashboard Shortcut : Co-Sign',()=>{
 
       test('Verify Co-Sign visibility on Dashboard based on Configuration ON/OFF', async () => {
         
@@ -71,9 +63,8 @@ test.describe.serial('Verify Dashboard Functionality', () => {
         await expect(OD.dashboardShortcut_CoSign).not.toBeVisible({ timeout: 10000 });
         });
     });
-  //}) test
+  }) 
 
-//   //Test cases are skipped to reduce execution time....
   test.describe('Verify Dashboard Shortcut : En.List',()=>{
     
     test('Verify En.List visibility on Dashboard based on Configuration ON/OFF', async () => {
@@ -103,7 +94,7 @@ test.describe.serial('Verify Dashboard Functionality', () => {
         await expect(OD.dashboardShortcut_eRx).not.toBeVisible({ timeout: 10000 });
         });
     });
-    })
+  })
   test.describe('Verify Dashboard Shortcut : IMR',()=>{
     
     test('Verify IMR visibility on Dashboard based on Configuration ON/OFF', async () => {
@@ -1082,5 +1073,4 @@ test.describe('Verify Bookmark on Dashboard : Waitlist',()=>{
   });
 });
 
-});
 });
