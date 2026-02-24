@@ -1,3 +1,4 @@
+//changed...
 const { test, expect } = require('@playwright/test');
 const { Login } = require('../functionalities/Login');
 const { ODashboard } = require('../page_objects/ODashboard');
@@ -175,7 +176,7 @@ test.describe.serial('Verify Dashboard Functionality', () => {
     test('Verify Message visibility on Dashboard based on Configuration ON/OFF', async () => {
       await test.step('Turn ON from Config and verify visible', async () => {
         await Da.AddWidgetFrom_DashboardConfig("Messages"); // default 'Co-Sign'
-         const isVisible = await Da.CheckWidgetOnDashboard("Messages");
+        const isVisible = await Da.CheckWidgetOnDashboard("Messages");
         expect(isVisible).toBe(true);
         
         });
@@ -193,13 +194,13 @@ test.describe.serial('Verify Dashboard Functionality', () => {
     test('Verify AppointmentRequests visibility on Dashboard based on Configuration ON/OFF', async () => {
         await test.step('Turn ON from Config and verify visible', async () => {
         await Da.AddWidgetFrom_DashboardConfig("Appointment Requests"); // default 'Co-Sign'
-          const isVisible = await Da.CheckWidgetOnDashboard("Appointment Requests");
+        const isVisible = await Da.CheckWidgetOnDashboard("Appointment Requests");
         expect(isVisible).toBe(true);
         });
 
         await test.step('Turn OFF from Config and verify hidden', async () => {
         await Da.RemoveWidgetFrom_DashboardConfig("Appointment Requests");
-       const isVisible = await Da.CheckWidgetOnDashboard("Appointment Requests");
+        const isVisible = await Da.CheckWidgetOnDashboard("Appointment Requests");
         expect(isVisible).toBe(false);
         });
     });

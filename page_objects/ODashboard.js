@@ -26,7 +26,7 @@ class ODashboard{
         this.page=page;
         //this.#patientSearchLocator = page.locator('//img[@title="Patient Search"]');
         this.#loggedInFacility = page.locator('//span[@id="lblFacilityName"]');
-        this.#loggedInPractise = page.locator("//div[@title='Elite private care 2']");
+        this.#loggedInPractise = page.locator("//div[@class='fl lblPractice pract ellipsis bold']");
         this.#dashboardShortcut_CoSign = page.locator('//div[@id="DC_CurrentWeekCosign"]');
         this.#dashboardShortcut_EnList = page.locator('//div[@id="DC_CurrentWeekEncounter"]');
         this.#dashboardShortcut_eRx = page.locator('//div[@id="DC_eRx"]');
