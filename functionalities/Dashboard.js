@@ -6,8 +6,8 @@ const { PDashboard } = require('../properties/PDashboard');
 
 class Dashboard{
       /** 
-     * @param {import('@playwright/test').Page} page
-     */ //To provide code-hint
+     @param {import('@playwright/test').Page} page
+     */
     constructor(page){
         this.page=page;
         this.OD=new ODashboard(page);
