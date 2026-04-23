@@ -33,7 +33,7 @@ test.describe.serial('Verify Dashboard Functionality', () => {
          fullPage: true
        });
   })
-
+//
   test.skip('Verify LoggedIn Practice', async () => {
     await expect(OD.loggedInPractise).toHaveAttribute('title', 'Elite private care 2', { timeout: 10000 });
   });
@@ -66,7 +66,7 @@ test.describe.serial('Verify Dashboard Functionality', () => {
         });
     });
   }) 
-comment
+// comment
   test.describe('Verify Dashboard Shortcut : En.List',()=>{
     
     test('Verify En.List visibility on Dashboard based on Configuration ON/OFF', async () => {

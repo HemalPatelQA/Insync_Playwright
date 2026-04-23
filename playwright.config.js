@@ -4,12 +4,11 @@ const env = require('./env.config');
 
 module.exports = defineConfig({
 //retries : 1, // retry once for failure test cases
-
-  reporter: [
-    ['list'],              // normal console output
-    ['allure-playwright']  // awo;dllure results output
-  ],
-
+workers: 1,
+reporter: [
+  ['list'],
+  ['allure-playwright', { outputFolder: 'allure-results' }]
+],
     testDir: './tests',
     timeout: 120000,
     projects: [
@@ -29,7 +28,6 @@ module.exports = defineConfig({
         headless: false,           // to show UI
         //viewport: { width: 1280, height: 720 },
         //retries : 1, // retry once for failure test cases
-
         viewport: null,  //for full browser window
         launchOptions: {
         args: ['--start-maximized']

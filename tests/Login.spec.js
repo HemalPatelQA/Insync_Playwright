@@ -29,7 +29,6 @@ test.describe.serial('Verify Login Process', () => {
     await lg.NavigateToUAT();
     await lg.Login();
     await lg.SelectFacility();
-
     await page.context().storageState({ path: storagePath });
   });
 
